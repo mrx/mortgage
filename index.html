@@ -52,21 +52,21 @@
     <div class="row">
       <div class="span3">
         <label>Monthly Payment</label>
-        <h2>{{monthlyPayment()}}</h2>
+        <h2>${{monthlyPayment()}}</h2>
       </div>
       <div class="span3">
         <label>Total of {{_loanTerm()}} payments</label>
-        <h2>{{totalPayment()}}</h2>
+        <h2>${{totalPayment()}}</h2>
       </div>
       <div class="span3">
         <label>Total Interest Paid</label>
-        <h2>{{totalInterestPaid()}}</h2>
+        <h2>${{totalInterestPaid()}}</h2>
       </div>
     </div>
     <div class="row" id="chart">
       <div class="span10">
         <label>Monthly payments for loan amounts from ${{lowerEnd()}} to ${{higherEnd()}}:</label>
-        <canvas id="monthlyPaymentGraph" width=940 height=300 data-value="{{loanAmount}}" />
+        <canvas id="monthlyPaymentGraph" width=940 height=300 />
       </div>
     </div>      
   </div>

@@ -34,18 +34,13 @@ ctx = elem.getContext("2d");
 setTimeout(function() {
     var data = {};
     data["labelsFunction"] = function() {
-      var elem = document.getElementById("monthlyPaymentGraph");
-      var value = parseInt(elem.attributes["data-value"].value) || 0;
-      console.log("current loan amount: " + value);
-      var dataset = around(value);
+      var dataset = around(scope._loanAmount());
       return dataset.map(function(loanAmount) {
           return roundTo(paymentCalc(scope._interestRate(), loanAmount, scope._loanTerm(), scope._totalPropertyTax()), 2);
         });
     };
     data["datasetFunction"] = function() {
-      var elem = document.getElementById("monthlyPaymentGraph");
-      var value = parseInt(elem.attributes["data-value"].value) || 0;
-      var dataset = around(value);     
+      var dataset = around(scope._loanAmount());
       return {
         fillColor : "rgba(220,220,220,0.5)",
         strokeColor : "rgba(220,220,220,1)",

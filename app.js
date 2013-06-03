@@ -21,7 +21,7 @@ function MortgageCalc($scope) {
   };
 
   $scope._loanTerm = function() {
-    return ((parseInt($scope.loanTerm) * 12) || "TBD");
+    return ((parseInt($scope.loanTerm) * 12) || 0);
   };
 
   $scope._homeValue = function() {
@@ -38,15 +38,15 @@ function MortgageCalc($scope) {
 
   $scope.monthlyPayment = function() {
     var result = paymentCalc($scope._interestRate(), $scope._loanAmount(), $scope._loanTerm(), $scope._totalPropertyTax());
-    return (roundTo(result, 2) || "TBD");
+    return (roundTo(result, 2) || 0);
   };
 
   $scope.totalPayment = function() {
-    return (roundTo($scope.monthlyPayment() * $scope._loanTerm(), 2) || "TBD");
+    return (roundTo($scope.monthlyPayment() * $scope._loanTerm(), 2) ||  0);
   };
 
   $scope.totalInterestPaid = function() {
-    return (roundTo($scope.totalPayment() - $scope._homeValue(), 2) || "TBD");
+    return (roundTo($scope.totalPayment() - $scope._homeValue(), 2) || 0);
   };
 
   $scope.lowerEnd = function() {

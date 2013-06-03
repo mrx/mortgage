@@ -42,13 +42,13 @@ setTimeout(function() {
     data["labels"] = dataset.map(function(loanAmount) {
         return roundTo(paymentCalc(scope._interestRate(), loanAmount, scope._loanTerm(), scope._totalPropertyTax()), 2);
       });
-    data["datasets"] = [{
+    data["dataset"] = {
       fillColor : "rgba(220,220,220,0.5)",
       strokeColor : "rgba(220,220,220,1)",
       pointColor : "rgba(220,220,220,1)",
       pointStrokeColor : "#fff",
       data : dataset
-    }];
+    };
 
     console.log(data);
 

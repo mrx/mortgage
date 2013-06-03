@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <title>Mortgage Calculator</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="flat-ui.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>    
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.min.js"></script>
+    <script src="chart.min.js"></script>    
+  </head>
+  <body ng-controller="MortgageCalc">
+    <div id="header">
+      <h1><img src="check.png" width=40 />Mortgage Calculator</h1>
+    </div>
+    <div id="inputs">
+      <div class="row">
+        <div class="span2">
+          <label for="homeValue">Home Value:</label>
+        </div>
+        <div class="span2">
+          <label for="loanAmount">Loan Amount:</label>
+        </div>
+        <div class="span2">
+          <label for="interestRate">Interest Rate:</label>
+        </div>
+        <div class="span2">
+          <label for="loanTerm">Loan Term (years):</label>
+        </div>
+        <div class="span2">
+          <label for="propertyTax">Property Tax:</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span2">
+          <input type="text" ng-model="homeValue" id="homeValue" placeholder="700000">
+        </div>
+        <div class="span2">
+          <input type="text" ng-model="loanAmount" id="loanAmount" placeholder="560000" />
+        </div>
+        <div class="span2">
+          <input type="text" ng-model="interestRate" id="interestRate" placeholder="4" />
+        </div>
+        <div class="span2">
+          <input type="text" ng-model="loanTerm" id="loanTerm" placeholder="30" />
+        </div>
+        <div class="span2">
+          <input type="text" ng-model="propertyTax" id="propertyTax" placeholder="1.12" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+        <label>Monthly Payment</label>
+        <h2>{{monthlyPayment()}}</h2>
+      </div>
+      <div class="span3">
+        <label>Total of {{_loanTerm()}} payments</label>
+        <h2>{{totalPayment()}}</h2>
+      </div>
+      <div class="span3">
+        <label>Total Interest Paid</label>
+        <h2>{{totalInterestPaid()}}</h2>
+      </div>
+    </div>
+    <div class="row" id="chart">
+      <div class="span10">
+        <label>Monthly payments for loan amounts from ${{lowerEnd()}} to ${{higherEnd()}}:</label>
+        <div id="graphContainer" data-value="{{loanAmount}}">
+          <canvas id="monthlyPaymentGraph" width=940 height=300 />
+        </div>
+      </div>
+    </div>      
+  </div>
+</div>
+<script src="app.js"></script>
+<script src="graphs.js"></script>  
+  </body>
+</html>

@@ -1,0 +1,40 @@
+div#header {
+  background-color: #2C3E50;
+  color: #E74C3C;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  margin: 0;
+  padding: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 100;
+}
+
+img {
+  padding: 0 10px 0 0;
+}
+
+body {
+  background-color: #1ABC9C;
+}
+
+.row {
+  width: 940px;
+  margin: 0 auto;
+  padding: 10px 0 0 0;
+}
+
+#inputs {
+  background-color: #16A085;
+  padding: 0 0 20px 0;
+}
+
+input {
+  width: 120px;
+}
+
+h2 {
+  font-size: 36px;
+}

@@ -32,22 +32,27 @@ elem = document.getElementById("monthlyPaymentGraph");
 ctx = elem.getContext("2d");
 
 setTimeout(function() {
-
-    var value = 700000;//parseInt(elem.attributes["data-value"].value);
-
     var data = {};
-
-    var dataset = around(value);
-
-    data["labels"] = dataset.map(function(loanAmount) {
-        return roundTo(paymentCalc(scope._interestRate(), loanAmount, scope._loanTerm(), scope._totalPropertyTax()), 2);
-      });
-    data["dataset"] = {
-      fillColor : "rgba(220,220,220,0.5)",
-      strokeColor : "rgba(220,220,220,1)",
-      pointColor : "rgba(220,220,220,1)",
-      pointStrokeColor : "#fff",
-      data : dataset
+    data["labelsFunction"] = function() {
+      var elem = document.getElementById("monthlyPaymentGraph");
+      var value = parseInt(elem.attributes["data-value"].value) || 0;
+      console.log("current loan amount: " + value);
+      var dataset = around(value);
+      return dataset.map(function(loanAmount) {
+          return roundTo(paymentCalc(scope._interestRate(), loanAmount, scope._loanTerm(), scope._totalPropertyTax()), 2);
+        });
+    };
+    data["datasetFunction"] = function() {
+      var elem = document.getElementById("monthlyPaymentGraph");
+      var value = parseInt(elem.attributes["data-value"].value) || 0;
+      var dataset = around(value);     
+      return {
+        fillColor : "rgba(220,220,220,0.5)",
+        strokeColor : "rgba(220,220,220,1)",
+        pointColor : "rgba(220,220,220,1)",
+        pointStrokeColor : "#fff",
+        data : dataset
+      };
     };
 
     console.log(data);

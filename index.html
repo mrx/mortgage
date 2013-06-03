@@ -66,9 +66,7 @@
     <div class="row" id="chart">
       <div class="span10">
         <label>Monthly payments for loan amounts from ${{lowerEnd()}} to ${{higherEnd()}}:</label>
-        <div id="graphContainer" data-value="{{loanAmount}}">
-          <canvas id="monthlyPaymentGraph" width=940 height=300 />
-        </div>
+        <canvas id="monthlyPaymentGraph" width=940 height=300 data-value="{{loanAmount}}" />
       </div>
     </div>      
   </div>
